@@ -78,6 +78,8 @@ impl Selector {
 
         debug_assert!(events.capacity() >= length);
 
+        log::error!("BLAH1");
+
         let res = unsafe { wasi::poll_oneoff(subscriptions.as_ptr(), events.as_mut_ptr(), length) };
 
         // Remove the timeout subscription we possibly added above.
